@@ -12,6 +12,7 @@ import {
     CandlestickSeries,
     LineSeries,
     MACDSeries,
+
 } from "react-stockcharts/lib/series";
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import {
