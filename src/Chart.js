@@ -35,7 +35,7 @@ const LENGTH_TO_SHOW = 180;
 
 const macdAppearance = {
     stroke: {
-        macd: "#FF0000",
+        macd: "#FF0458",
         signal: "#00F300",
     },
     fill: {
@@ -170,7 +170,7 @@ class CandleStickChartPanToLoadMore extends React.Component {
         const { type, width, ratio } = this.props;
 
 
-        const height = 400;
+        const height = '80%';
         const gridHeight = height - margin.top - margin.bottom;
         const gridWidth = width - margin.left - margin.right;
 
@@ -180,7 +180,9 @@ class CandleStickChartPanToLoadMore extends React.Component {
 
 
         return (
-            <ChartCanvas ratio={ratio} width={width} height={600}
+            // <div style={{ background: '#000000F0' }}>
+            <ChartCanvas ratio={ratio} width={width} height={800}
+
                 margin={{ left: 70, right: 70, top: 20, bottom: 30 }} type={type}
                 seriesName="MSFT"
                 data={data}
@@ -217,7 +219,7 @@ class CandleStickChartPanToLoadMore extends React.Component {
                     <CurrentCoordinate yAccessor={ema12.accessor()} fill={ema12.stroke()} />
 
                     <EdgeIndicator itemType="last" orient="right" edgeAt="right"
-                        yAccessor={d => d.close} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"} />
+                        yAccessor={d => d.close} fill={d => d.close > d.open ? "#FF0458" : "#FF0000"} />
 
                     <OHLCTooltip origin={[-40, 0]} />
                     <MovingAverageTooltip
@@ -249,8 +251,8 @@ class CandleStickChartPanToLoadMore extends React.Component {
                         orient="left"
                         displayFormat={format(".4s")} />
 
-                    <BarSeries yAccessor={d => d.volume} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"} />
-                    <AreaSeries yAccessor={smaVolume50.accessor()} stroke={smaVolume50.stroke()} fill={smaVolume50.fill()} />
+                    <BarSeries yAccessor={d => d.volume} fill={d => d.close > d.open ? "#db1d3c" : "#13f073"} />
+                    {/* <AreaSeries yAccessor={smaVolume50.accessor()} stroke={smaVolume50.stroke()} fill={smaVolume50.fill()} /> */}
                 </Chart>
                 <Chart id={3} height={150}
                     yExtents={macdCalculator.accessor()}
@@ -279,6 +281,8 @@ class CandleStickChartPanToLoadMore extends React.Component {
                 </Chart>
                 <CrossHairCursor />
             </ChartCanvas>
+            // </div>
+
         );
     }
 }
